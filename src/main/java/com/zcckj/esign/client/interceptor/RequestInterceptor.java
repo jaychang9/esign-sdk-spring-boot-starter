@@ -3,6 +3,8 @@ package com.zcckj.esign.client.interceptor;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.BasePathMatchInterceptor;
 import com.zcckj.esign.config.properties.ESignProperties;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.springframework.stereotype.Component;
@@ -12,11 +14,13 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class RequestInterceptor extends BasePathMatchInterceptor {
 
     private final long validDurationMillis = 5 * 60 * 1000;
+
 
     private final ESignProperties eSignProperties;
 
@@ -25,6 +29,10 @@ public class RequestInterceptor extends BasePathMatchInterceptor {
         Request request = chain.request();
         long currentTimeMillis = System.currentTimeMillis();
         Request newRequest = createNewRequest(request, currentTimeMillis + validDurationMillis);
+        if (log.isDebugEnabled()) {
+            Headers headers = newRequest.headers();
+            log.debug("请求e签宝的接口url:{}\n请求头:\n{}", newRequest.url(), headers);
+        }
         return chain.proceed(newRequest);
     }
 
