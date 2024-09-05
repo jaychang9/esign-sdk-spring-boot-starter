@@ -16,10 +16,10 @@ public class GetDocTemplateEditUrlRes implements Serializable {
     /**
      * 制作合同模板的页面短链接（有效期24小时）
      */
-    private String docTemplateCreateUrl;
+    private String docTemplateEditUrl;
     /**
      * 制作合同模板的页面长链接（有效期24小时）
      */
-    private String docTemplateCreateLongUrl;
+    private String docTemplateEditLongUrl;
 
 }

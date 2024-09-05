@@ -6,8 +6,10 @@ import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.req.GetDocTemplateCreateUrlReq;
 import com.zcckj.esign.dto.req.GetDocTemplateEditUrlReq;
+import com.zcckj.esign.dto.req.GetDocTemplatePreviewUrlReq;
 import com.zcckj.esign.dto.res.GetDocTemplateCreateUrlRes;
 import com.zcckj.esign.dto.res.GetDocTemplateEditUrlRes;
+import com.zcckj.esign.dto.res.GetDocTemplatePreviewUrlRes;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -34,4 +36,12 @@ public interface DocTemplateClient {
      */
     @POST("/v3/doc-templates/{docTemplateId}/doc-template-edit-url")
     Result<GetDocTemplateEditUrlRes> getDocTemplateEditUrl(@Path("docTemplateId") String docTemplateId, @Body GetDocTemplateEditUrlReq req);
+
+    /**
+     * 获取预览合同模板页面
+     *
+     * @return
+     */
+    @POST("/v3/doc-templates/doc-template-preview-url")
+    Result<GetDocTemplatePreviewUrlRes> getDocTemplatePreviewUrl(@Body GetDocTemplatePreviewUrlReq req);
 }
