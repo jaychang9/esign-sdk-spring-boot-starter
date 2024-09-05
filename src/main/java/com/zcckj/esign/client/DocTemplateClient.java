@@ -4,13 +4,11 @@ import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
 import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
+import com.zcckj.esign.dto.req.CreateByDocTemplateReq;
 import com.zcckj.esign.dto.req.GetDocTemplateCreateUrlReq;
 import com.zcckj.esign.dto.req.GetDocTemplateEditUrlReq;
 import com.zcckj.esign.dto.req.GetDocTemplatePreviewUrlReq;
-import com.zcckj.esign.dto.res.GetDocTemplateComponentsRes;
-import com.zcckj.esign.dto.res.GetDocTemplateCreateUrlRes;
-import com.zcckj.esign.dto.res.GetDocTemplateEditUrlRes;
-import com.zcckj.esign.dto.res.GetDocTemplatePreviewUrlRes;
+import com.zcckj.esign.dto.res.*;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -55,4 +53,11 @@ public interface DocTemplateClient {
      */
     @GET("/v3/doc-templates/{docTemplateId}")
     Result<GetDocTemplateComponentsRes> getDocTemplateComponents(@Path("docTemplateId") String docTemplateId);
+
+    /**
+     * 填写模板生成文件
+     * @return
+     */
+    @POST("/v3/files/create-by-doc-template")
+    Result<CreateByDocTemplateRes> createByDocTemplate(@Body CreateByDocTemplateReq req);
 }
