@@ -2,8 +2,8 @@ package com.zcckj.esign.client.interceptor;
 
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.BasePathMatchInterceptor;
 import com.zcckj.esign.config.properties.ESignProperties;
+import com.zcckj.esign.constant.ESignConstant;
 import com.zcckj.esign.support.EsignEncryption;
-import com.zcckj.esign.support.SignatureHelper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.Request;
@@ -13,6 +13,11 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+/**
+ * 请求e签宝接口前，打印请求地址、请求头、请求体信息，及对请求参数作签名处理
+ *
+ * @author zhangjie
+ */
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -34,52 +39,44 @@ public class ESignRequestInterceptor extends BasePathMatchInterceptor {
     private Request createNewRequest(Request oldRequest, StringBuilder sb) {
         long timestamp = System.currentTimeMillis();
         // 请求体字符串
-        String bodyStr = bodyToString(oldRequest);
-        String contentMD5 = EsignEncryption.doContentMD5(bodyStr);
-        String appId = eSignProperties.getAppId();
-        String method = oldRequest.method();
-        String accept = "*/*";
-        String contentType = "application/json; charset=UTF-8";
-        String url = oldRequest.url().toString().replaceFirst(eSignProperties.getBaseUrl(), "");
-        String date = "";
-        String headers = "";
+        final String bodyStr = bodyToString(oldRequest);
+        final String contentMD5 = EsignEncryption.doContentMD5(bodyStr);
+        final String method = oldRequest.method();
+        final String url = oldRequest.url().toString().replaceFirst(eSignProperties.getBaseUrl(), "");
+        final String date = "";
+        final String headers = "";
 
-        sb.append(method).append("\n").append(accept).append("\n").append(contentMD5).append("\n")
-                .append(contentType).append("\n").append(date).append("\n");
-        if ("".equals(headers)) {
-            sb.append(headers).append(url);
-        } else {
-            sb.append(headers).append("\n").append(url);
-        }
-
-        log.debug("待签名字符串拼接:\n{}", sb.toString());
+        String waitSignStr = EsignEncryption.appendSignDataString(method, contentMD5, ESignConstant.DEFAULT_ACCEPT_HEADER_VALUE, ESignConstant.DEFAULT_CONTENT_TYPE_HEADER_VALUE, headers, date, url);
+        log.debug("待签名字符串拼接:\n{}", waitSignStr);
 
         // 计算请求签名值
         String reqSignature = "";
         try {
-            reqSignature = SignatureHelper.doSignatureBase64(sb.toString(), eSignProperties.getAppSecret());
+            reqSignature = EsignEncryption.doSignatureBase64(waitSignStr, eSignProperties.getAppSecret());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         // 添加公共请求头
         Request newRequest = oldRequest.newBuilder()
-                .addHeader("X-Tsign-Open-App-Id", appId)
-                .addHeader("X-Tsign-Open-Auth-Mode", "Signature")
-                .addHeader("X-Tsign-Open-Ca-Signature", reqSignature)
-                .addHeader("X-Tsign-Open-Ca-Timestamp", String.valueOf(timestamp))
-                .addHeader("Accept", "*/*")
-                .addHeader("Content-Type", "application/json; charset=UTF-8")
-                .addHeader("Content-MD5", contentMD5)
+                .addHeader(ESignConstant.APP_ID_HEADER_NAME, eSignProperties.getAppId())
+                .addHeader(ESignConstant.AUTH_MODE_HEADER_NAME, ESignConstant.DEFAULT_AUTH_MODE_HEADER_VALUE)
+                .addHeader(ESignConstant.SIGNATURE_HEADER_NAME, reqSignature)
+                .addHeader(ESignConstant.TIMESTAMP_HEADER_NAME, String.valueOf(timestamp))
+                .addHeader(ESignConstant.ACCEPT_HEADER_NAME, ESignConstant.DEFAULT_ACCEPT_HEADER_VALUE)
+                .addHeader(ESignConstant.CONTENT_TYPE_HEADER_NAME, ESignConstant.DEFAULT_CONTENT_TYPE_HEADER_VALUE)
+                .addHeader(ESignConstant.CONTENT_MD5_HEADER_NAME, contentMD5)
                 .build();
+        sb.append("\n");
         sb.append("*********************************************************************");
+        sb.append("\n");
         sb.append(String.format("请求url:%s", newRequest.url()));
         sb.append("\n");
         sb.append(String.format("请求头:\n%s", newRequest.headers()));
         sb.append("\n");
         sb.append(String.format("请求体:\n%s", bodyStr));
+        sb.append("\n");
         sb.append("*********************************************************************");
-
         return newRequest;
     }
 
