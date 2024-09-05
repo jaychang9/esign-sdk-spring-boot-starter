@@ -12,6 +12,7 @@ import okio.Buffer;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * 请求e签宝接口前，打印请求地址、请求头、请求体信息，及对请求参数作签名处理
@@ -85,6 +86,9 @@ public class ESignRequestInterceptor extends BasePathMatchInterceptor {
         try {
             final Request copy = request.newBuilder().build();
             final Buffer buffer = new Buffer();
+            if (Objects.isNull(copy.body())) {
+                return "";
+            }
             copy.body().writeTo(buffer);
             return buffer.readUtf8();
         } catch (final IOException e) {

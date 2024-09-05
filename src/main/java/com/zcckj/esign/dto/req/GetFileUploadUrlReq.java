@@ -3,12 +3,15 @@ package com.zcckj.esign.dto.req;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+
 /**
  * 获取文件上传地址请求
  */
 @Data
 @Accessors(chain = true)
-public class GetFileUploadUrlReq {
+public class GetFileUploadUrlReq implements Serializable {
+    private static final long serialVersionUID = -6216305946100581155L;
     /**
      * 文件的Content-MD5值
      */
