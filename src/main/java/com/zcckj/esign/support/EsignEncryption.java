@@ -125,6 +125,16 @@ public class EsignEncryption {
     }
 
     /**
+     * 获取时间戳
+     *
+     * @return
+     */
+    public static String timeStamp() {
+        long timeStamp = System.currentTimeMillis();
+        return String.valueOf(timeStamp);
+    }
+
+    /**
      * byte字节数组转换成字符串
      *
      * @param b

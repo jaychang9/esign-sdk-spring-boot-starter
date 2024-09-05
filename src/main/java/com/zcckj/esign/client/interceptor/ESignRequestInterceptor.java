@@ -37,7 +37,6 @@ public class ESignRequestInterceptor extends BasePathMatchInterceptor {
     }
 
     private Request createNewRequest(Request oldRequest, StringBuilder sb) {
-        long timestamp = System.currentTimeMillis();
         // 请求体字符串
         final String bodyStr = bodyToString(oldRequest);
         final String contentMD5 = EsignEncryption.doContentMD5(bodyStr);
@@ -62,11 +61,12 @@ public class ESignRequestInterceptor extends BasePathMatchInterceptor {
                 .addHeader(ESignConstant.APP_ID_HEADER_NAME, eSignProperties.getAppId())
                 .addHeader(ESignConstant.AUTH_MODE_HEADER_NAME, ESignConstant.DEFAULT_AUTH_MODE_HEADER_VALUE)
                 .addHeader(ESignConstant.SIGNATURE_HEADER_NAME, reqSignature)
-                .addHeader(ESignConstant.TIMESTAMP_HEADER_NAME, String.valueOf(timestamp))
+                .addHeader(ESignConstant.TIMESTAMP_HEADER_NAME, EsignEncryption.timeStamp())
                 .addHeader(ESignConstant.ACCEPT_HEADER_NAME, ESignConstant.DEFAULT_ACCEPT_HEADER_VALUE)
                 .addHeader(ESignConstant.CONTENT_TYPE_HEADER_NAME, ESignConstant.DEFAULT_CONTENT_TYPE_HEADER_VALUE)
                 .addHeader(ESignConstant.CONTENT_MD5_HEADER_NAME, contentMD5)
                 .build();
+
         sb.append("\n");
         sb.append("*********************************************************************");
         sb.append("\n");
@@ -77,6 +77,7 @@ public class ESignRequestInterceptor extends BasePathMatchInterceptor {
         sb.append(String.format("请求体:\n%s", bodyStr));
         sb.append("\n");
         sb.append("*********************************************************************");
+
         return newRequest;
     }
 
