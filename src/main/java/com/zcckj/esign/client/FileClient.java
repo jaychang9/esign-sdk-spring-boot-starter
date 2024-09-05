@@ -9,7 +9,9 @@ import com.zcckj.esign.dto.res.GetFileUploadStatusRes;
 import com.zcckj.esign.dto.res.GetFileUploadUrlRes;
 import retrofit2.http.*;
 
-
+/**
+ * 文件类
+ */
 @RetrofitClient(baseUrl = "${esign.base-url}")
 @Intercept(handler = ESignRequestInterceptor.class)
 public interface FileClient {
