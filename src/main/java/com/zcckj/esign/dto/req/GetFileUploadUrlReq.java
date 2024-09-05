@@ -28,5 +28,5 @@ public class GetFileUploadUrlReq {
     /**
      * 文件大小，单位: byte字节
      */
-    private Integer fileSize;
+    private Long fileSize;
 }
