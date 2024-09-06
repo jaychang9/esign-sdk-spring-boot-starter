@@ -8,18 +8,14 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 查询个人授权信息响应体
+ * 查询机构授权信息响应体
  *
  * @author zhangjie
  */
 @Data
 @Accessors(chain = true)
-public class GetPersonAuthorizedInfoRes implements Serializable {
+public class GetOrgAuthorizedInfoRes implements Serializable {
+    private static final long serialVersionUID = 5517573994835963261L;
 
-    private static final long serialVersionUID = 8885122671532991282L;
-
-    /**
-     * 用户授权信息列表
-     */
     private List<AuthorizedInfo> authorizedInfo;
 }
