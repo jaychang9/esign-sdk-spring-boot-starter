@@ -9,7 +9,9 @@ import com.zcckj.esign.dto.req.CreateByFileSimpleReq;
 import com.zcckj.esign.dto.req.GetSignUrlReq;
 import com.zcckj.esign.dto.res.CreateByFileRes;
 import com.zcckj.esign.dto.res.GetSignUrlRes;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * 签署类
@@ -27,7 +29,7 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/create-by-file")
-    Result<CreateByFileRes> createByFile(CreateByFileSimpleReq req);
+    Result<CreateByFileRes> createByFile(@Body CreateByFileSimpleReq req);
 
 
     /**
@@ -37,7 +39,7 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/create-by-file")
-    Result<CreateByFileRes> createByFile(CreateByFileReq req);
+    Result<CreateByFileRes> createByFile(@Body CreateByFileReq req);
 
     /**
      * 获取签署页面链接
@@ -46,5 +48,5 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/{signFlowId}/sign-url")
-    Result<GetSignUrlRes> getSignUrl(GetSignUrlReq req);
+    Result<GetSignUrlRes> getSignUrl(@Path("signFlowId") String signFlowId, @Body GetSignUrlReq req);
 }

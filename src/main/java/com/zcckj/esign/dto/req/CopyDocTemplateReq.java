@@ -15,11 +15,6 @@ public class CopyDocTemplateReq implements Serializable {
     private static final long serialVersionUID = -1095158446168509141L;
 
     /**
-     * 原始合同模板ID
-     */
-    private String docTemplateId;
-
-    /**
      * 重命名模板名称（最长64个字）
      *
      * 【注】不传时默认取原模板名称

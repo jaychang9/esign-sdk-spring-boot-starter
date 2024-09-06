@@ -13,6 +13,7 @@ import retrofit2.http.Path;
 
 /**
  * 合同模板类
+ *
  * @author zhangjie
  */
 @RetrofitClient(baseUrl = "${esign.base-url}")
@@ -54,6 +55,7 @@ public interface DocTemplateClient {
 
     /**
      * 填写模板生成文件
+     *
      * @return
      */
     @POST("/v3/files/create-by-doc-template")
@@ -61,8 +63,9 @@ public interface DocTemplateClient {
 
     /**
      * 复制合同模板
+     *
      * @return
      */
     @POST("/v3/doc-templates/{docTemplateId}/copy")
-    Result<CopyDocTemplateRes> copyDocTemplate(CopyDocTemplateReq req);
+    Result<CopyDocTemplateRes> copyDocTemplate(@Path("docTemplateId") String docTemplateId, @Body CopyDocTemplateReq req);
 }

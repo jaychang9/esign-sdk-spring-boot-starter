@@ -16,11 +16,6 @@ public class GetSignUrlReq implements Serializable {
     private static final long serialVersionUID = 2056873854764630374L;
 
     /**
-     * 签署流程ID
-     */
-    private String signFlowId;
-
-    /**
      * 是否需要登录打开链接（默认值 false）
      * <p>
      * true - 需登录打开链接，false - 免登录
@@ -77,7 +72,7 @@ public class GetSignUrlReq implements Serializable {
      * 示例值：esign://demo/signBack
      * <p>
      * （点击了解 APP内嵌签署/认证H5对接说明）
-     *  https://open.esign.cn/doc/opendoc/case3/ovb0e40do4fnrr61
+     * https://open.esign.cn/doc/opendoc/case3/ovb0e40do4fnrr61
      */
     private String appScheme;
 
