@@ -1,6 +1,6 @@
 package com.zcckj.esign.dto.res;
 
-import com.zcckj.esign.dto.DocTemplateComponent;
+import com.zcckj.esign.dto.Component;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -42,5 +42,5 @@ public class GetDocTemplateComponentsRes implements Serializable {
     /**
      * 模板中的控件列表信息
      */
-    private List<DocTemplateComponent> components;
+    private List<Component> components;
 }

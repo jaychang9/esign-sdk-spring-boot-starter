@@ -10,7 +10,8 @@ import java.io.Serializable;
  */
 @Data
 @Accessors(chain = true)
-public class DocTemplateComponentPosition implements Serializable {
+public class ComponentPosition implements Serializable {
+    private static final long serialVersionUID = -5363729185852579103L;
     /**
      * 控件位置X横坐标
      */

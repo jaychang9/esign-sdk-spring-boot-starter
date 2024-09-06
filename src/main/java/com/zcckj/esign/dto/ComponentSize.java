@@ -10,7 +10,8 @@ import java.io.Serializable;
  */
 @Data
 @Accessors(chain = true)
-public class DocTemplateComponentSize implements Serializable {
+public class ComponentSize implements Serializable {
+    private static final long serialVersionUID = 5155117200166337288L;
     /**
      * 控件宽度（矩形的左右距离，单位为px）
      */

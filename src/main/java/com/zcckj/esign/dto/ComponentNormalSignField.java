@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class DocTemplateComponentNormalSignField {
+public class ComponentNormalSignField {
     private static final long serialVersionUID = 8661962459978663770L;
 
     /**

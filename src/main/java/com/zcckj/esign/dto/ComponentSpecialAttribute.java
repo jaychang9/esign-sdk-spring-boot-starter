@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class DocTemplateComponentSpecialAttribute implements Serializable {
+public class ComponentSpecialAttribute implements Serializable {
     private static final long serialVersionUID = 495467345633522614L;
 
     /**
@@ -33,7 +33,7 @@ public class DocTemplateComponentSpecialAttribute implements Serializable {
     /**
      * 选项（下拉框控件、单选控件、多选控件特有）
      */
-    private List<DocTemplateComponentSpecialAttributeOption> options;
+    private List<ComponentSpecialAttributeOption> options;
 
     /**
      * 表格行列内容（动态表格控件特有），格式：

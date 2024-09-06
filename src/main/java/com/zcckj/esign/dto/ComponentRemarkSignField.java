@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class DocTemplateComponentRemarkSignField {
+public class ComponentRemarkSignField {
     private static final long serialVersionUID = 8661962459978663770L;
 
     /**

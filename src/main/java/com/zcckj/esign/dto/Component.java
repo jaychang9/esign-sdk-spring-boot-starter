@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class DocTemplateComponent {
+public class Component {
     private static final long serialVersionUID = 8661962459978663770L;
 
     /**
@@ -39,26 +39,26 @@ public class DocTemplateComponent {
     /**
      * 控件位置信息
      */
-    private DocTemplateComponentPosition componentPosition;
+    private ComponentPosition componentPosition;
 
     /**
      * 控件特有属性
      */
-    private DocTemplateComponentSpecialAttribute componentSpecialAttribute;
+    private ComponentSpecialAttribute componentSpecialAttribute;
     /**
      * 控件尺寸
      */
-    private DocTemplateComponentSize componentSize;
+    private ComponentSize componentSize;
 
     /**
      * 签章区属性
      */
-    private DocTemplateComponentNormalSignField normalSignField;
+    private ComponentNormalSignField normalSignField;
 
     /**
      * 备注区属性
      */
-    private DocTemplateComponentRemarkSignField remarkSignField;
+    private ComponentRemarkSignField remarkSignField;
 
     /**
      * 自定义控件ID
