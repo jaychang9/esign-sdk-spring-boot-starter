@@ -10,7 +10,7 @@ import com.zcckj.esign.dto.res.GetFileUploadUrlRes;
 import retrofit2.http.*;
 
 /**
- * 文件类
+ * 文件
  * @author zhangjie
  */
 @RetrofitClient(baseUrl = "${esign.base-url}")

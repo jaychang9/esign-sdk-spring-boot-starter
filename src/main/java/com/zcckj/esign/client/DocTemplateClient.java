@@ -9,7 +9,7 @@ import com.zcckj.esign.dto.res.*;
 import retrofit2.http.*;
 
 /**
- * 合同模板类
+ * 合同模板
  *
  * @author zhangjie
  */
