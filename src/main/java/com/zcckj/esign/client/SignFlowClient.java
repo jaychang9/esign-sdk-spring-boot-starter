@@ -56,8 +56,7 @@ public interface SignFlowClient {
     /**
      * 获取签署页面链接
      *
-     * @param req
-     * @return
+     * @param req @return
      */
     @POST("/v3/sign-flow/batch-sign-url")
     Result<GetBatchSignUrlRes> getBatchSignUrl(@Body GetBatchSignUrlReq req);

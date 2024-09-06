@@ -6,10 +6,7 @@ import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.req.*;
 import com.zcckj.esign.dto.res.*;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.*;
 
 /**
  * 合同模板类
@@ -68,4 +65,13 @@ public interface DocTemplateClient {
      */
     @POST("/v3/doc-templates/{docTemplateId}/copy")
     Result<CopyDocTemplateRes> copyDocTemplate(@Path("docTemplateId") String docTemplateId, @Body CopyDocTemplateReq req);
+
+    /**
+     * 删除合同模板
+     *
+     * @param docTemplateId 合同模板ID
+     * @return
+     */
+    @DELETE("/v3/doc-templates/{docTemplateId}")
+    Result deleteDocTemplate(@Path("docTemplateId") String docTemplateId);
 }
