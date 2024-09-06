@@ -74,4 +74,24 @@ public interface DocTemplateClient {
      */
     @DELETE("/v3/doc-templates/{docTemplateId}")
     Result deleteDocTemplate(@Path("docTemplateId") String docTemplateId);
+
+    /**
+     * 导出合同模板(仅支持沙箱模拟环境)
+     *
+     * @param req
+     * @return
+     */
+    @POST("/v3/doc-templates/export")
+    Result<DocTemplateExportRes> docTemplatesExport(@Body DocTemplateExportReq req);
+
+
+    /**
+     * 导出合同模板(仅支持沙箱模拟环境)
+     *
+     * @param req
+     * @return
+     */
+    @POST("/v3/doc-templates/import")
+    Result<DocTemplateImportRes> docTemplatesImport(@Body DocTemplateImportReq req);
+
 }
