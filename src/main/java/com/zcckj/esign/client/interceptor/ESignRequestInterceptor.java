@@ -54,6 +54,7 @@ public class ESignRequestInterceptor extends BasePathMatchInterceptor {
         try {
             reqSignature = EsignEncryption.doSignatureBase64(waitSignStr, eSignProperties.getAppSecret());
         } catch (Exception e) {
+            log.error("计算请求签名值失败", e);
             throw new RuntimeException(e);
         }
 

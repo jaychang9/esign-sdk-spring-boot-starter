@@ -4,10 +4,7 @@ import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
 import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
-import com.zcckj.esign.dto.req.CreateByDocTemplateReq;
-import com.zcckj.esign.dto.req.GetDocTemplateCreateUrlReq;
-import com.zcckj.esign.dto.req.GetDocTemplateEditUrlReq;
-import com.zcckj.esign.dto.req.GetDocTemplatePreviewUrlReq;
+import com.zcckj.esign.dto.req.*;
 import com.zcckj.esign.dto.res.*;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -61,4 +58,11 @@ public interface DocTemplateClient {
      */
     @POST("/v3/files/create-by-doc-template")
     Result<CreateByDocTemplateRes> createByDocTemplate(@Body CreateByDocTemplateReq req);
+
+    /**
+     * 复制合同模板
+     * @return
+     */
+    @POST("/v3/doc-templates/{docTemplateId}/copy")
+    Result<CopyDocTemplateRes> copyDocTemplate(CopyDocTemplateReq req);
 }
