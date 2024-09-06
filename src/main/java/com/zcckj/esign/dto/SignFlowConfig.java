@@ -28,7 +28,7 @@ public class SignFlowConfig implements Serializable {
      * 默认在签署流程创建后的90天时截止（指定值最大不能超过90天，只能指定90天内的时间戳）。签署中如需延期请调用【延期签署截止时间】接口。
      * https://open.esign.cn/doc/opendoc/pdf-sign3/idv0fv
      */
-    private Integer signFlowExpireTime;
+    private Long signFlowExpireTime;
 
     /**
      * 自动开启签署流程，默认值 true
@@ -96,7 +96,7 @@ public class SignFlowConfig implements Serializable {
     /**
      * 流程整体认证配置项
      */
-    private AuthConfig authConfig;
+    private SignFlowAuthConfig authConfig;
 
     /**
      * 合同相关配置项

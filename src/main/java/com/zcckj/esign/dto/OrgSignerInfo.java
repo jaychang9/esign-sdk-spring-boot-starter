@@ -23,7 +23,7 @@ public class OrgSignerInfo implements Serializable {
     /**
      * 企业/机构签署方信息（将展示在机构认证页面）
      */
-    private OrgInfo orgInfo;
+    private OrgIdInfo orgInfo;
 
     /**
      * 企业/机构经办人信息

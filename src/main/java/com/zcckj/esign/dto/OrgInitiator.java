@@ -44,5 +44,10 @@ public class OrgInitiator implements Serializable {
          * https://open.esign.cn/doc/opendoc/auth3/vssvtu
          */
         private String psnId;
+
+        /**
+         * 经办人姓名
+         */
+        private String psnName;
     }
 }

@@ -1,9 +1,6 @@
 package com.zcckj.esign.dto.req;
 
-import com.zcckj.esign.dto.Doc;
-import com.zcckj.esign.dto.SignFlowConfig;
-import com.zcckj.esign.dto.SignFlowInitiator;
-import com.zcckj.esign.dto.Signer;
+import com.zcckj.esign.dto.*;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -12,6 +9,7 @@ import java.util.List;
 
 /**
  * （精简版）基于文件发起签署请求体
+ *
  * @author zhangjie
  */
 @Data
@@ -27,6 +25,13 @@ public class CreateByFileReq implements Serializable {
      * https://open.esign.cn/doc/opendoc/pdf-sign3/fuuzv5
      */
     private List<Doc> docs;
+
+    /**
+     * 设置附属材料信息（点击了解 添加合同附件）
+     * https://open.esign.cn/doc/opendoc/case3/cz89hlq0ng7beysi
+     * 【注】附属材料即附件，指无需签名的文件，仅用于查看
+     */
+    private List<Attachment> attachments;
 
 
     /**
@@ -64,4 +69,15 @@ public class CreateByFileReq implements Serializable {
      * https://open.esign.cn/doc/opendoc/pdf-sign3/ohzup7
      */
     private List<Signer> signers;
+
+    /**
+     * 抄送方信息（指不参与签署的机构或者个人，流程结束后将收到通知，允许查看签署文件）
+     * <p>
+     * （点击了解 添加合同抄送方）
+     * https://open.esign.cn/doc/opendoc/case3/uiviglpo2yg7rhd0
+     * <p>
+     * 如需抄送多个企业或个人，允许传入多个抄送方数组；
+     * 抄送机构的情况：copierOrgInfo与copierPsnInfo均需传值；抄送个人的情况：仅需传copierPsnInfo；
+     */
+    private List<Copier> copiers;
 }

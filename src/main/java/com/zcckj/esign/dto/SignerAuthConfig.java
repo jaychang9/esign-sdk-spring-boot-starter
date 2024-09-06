@@ -7,14 +7,15 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 流程整体认证配置项
+ * 签署方维度认证配置项
+ *
  * @author zhangjie
  */
 @Data
 @Accessors(chain = true)
-public class AuthConfig implements Serializable {
+public class SignerAuthConfig implements Serializable {
+    private static final long serialVersionUID = -4369590832960142447L;
 
-    private static final long serialVersionUID = 6665884933563979484L;
 
     /**
      * 签署意愿认证方式，可选值如下：
@@ -54,7 +55,29 @@ public class AuthConfig implements Serializable {
     private List<String> orgAvailableAuthModes;
 
     /**
-     * 智能视频认证模板ID，请联系交付顾问提供
+     * 是否需要意愿认证，默认：true
+     * <p>
+     * true - 需要
+     * <p>
+     * false - 不需要（仅限海外签时可配置，signMode=GLOBAL）
      */
-    private String audioVideoTemplateId;
+    private Boolean globalWillingness;
+
+    /**
+     * 海外签身份验证方式，默认：MAINLAND_REAL_NAME
+     * <p>
+     * MAINLAND_REAL_NAME - 中国实名（中国大陆签原有方式）
+     * <p>
+     * NO_NEED - 无需验证（仅限海外签时可配置，signMode=GLOBAL）
+     * <p>
+     * ACCESS_CODE - 访问口令（仅限海外签时可配置，signMode=GLOBAL；且配置该方式时，globalAccessCode必须传值）
+     */
+    private String globalAuthModes;
+
+    /**
+     * 海外签访问口令（仅限海外签时可配置，signMode=GLOBAL）
+     * <p>
+     * 【注】支持6-45位，只支持字母和数字
+     */
+    private String globalAccessCode;
 }

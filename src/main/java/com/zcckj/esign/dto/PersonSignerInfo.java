@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 个人签署方信息
+ *
  * @author zhangjie
  */
 @Data
@@ -29,6 +30,6 @@ public class PersonSignerInfo implements Serializable {
      * 已实名用户，若传入的psnInfo与在e签宝绑定的psnAccount不一致，则接口将会报错，建议核实用户身份信息后重新发起流程；
      * 未实名用户，签署页将根据传入的身份信息进行用户实名认证。
      */
-    private PersonInfo psnInfo;
+    private PersonIdInfo psnInfo;
 
 }

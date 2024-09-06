@@ -17,4 +17,9 @@ public class PersonInitiator implements Serializable {
      *  https://open.esign.cn/doc/opendoc/auth3/vssvtu
      */
     private String psnId;
+
+    /**
+     * 个人发起方姓名
+     */
+    private String psnName;
 }

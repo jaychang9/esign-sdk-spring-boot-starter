@@ -7,8 +7,10 @@ import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.req.*;
 import com.zcckj.esign.dto.res.CreateByFileRes;
 import com.zcckj.esign.dto.res.GetBatchSignUrlRes;
+import com.zcckj.esign.dto.res.GetSignFlowDetailRes;
 import com.zcckj.esign.dto.res.GetSignUrlRes;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -60,6 +62,16 @@ public interface SignFlowClient {
 
 
     /**
+     * 查询签署流程详情
+     *
+     * @param signFlowId 签署流程ID
+     * @return
+     */
+    @GET("/v3/sign-flow/{signFlowId}/detail")
+    Result<GetSignFlowDetailRes> detail(@Path("signFlowId") String signFlowId);
+
+
+    /**
      * 撤销签署流程
      *
      * @return
@@ -70,6 +82,7 @@ public interface SignFlowClient {
 
     /**
      * 延长签署截止时间
+     *
      * @param signFlowId 签署流程ID
      * @return
      */
@@ -83,5 +96,5 @@ public interface SignFlowClient {
      * @param req
      * @return
      */
-    Result urge(@Path("signFlowId") String signFlowId, @Body SignFlowUrgeReq req)
+    Result urge(@Path("signFlowId") String signFlowId, @Body SignFlowUrgeReq req);
 }

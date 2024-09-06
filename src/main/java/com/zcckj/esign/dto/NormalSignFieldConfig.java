@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 签章区配置项
@@ -43,6 +44,14 @@ public class NormalSignFieldConfig implements Serializable {
      */
     private Boolean autoSign;
 
+
+    /**
+     * 页面是否可移动签章区，默认值 false
+     *
+     * true - 可移动 ，false - 不可移动
+     */
+    private Boolean movableSignField;
+
     /**
      * 指定印章ID（印章ID是e签宝SaaS官网的印章编号，点击查看 获取方式）
      * https://open.esign.cn/doc/opendoc/helper/xvglqhiq48prkf4m
@@ -51,11 +60,68 @@ public class NormalSignFieldConfig implements Serializable {
     private String assignedSealId;
 
     /**
+     * 手动签章时页面可选的印章列表（印章ID是e签宝SaaS官网的印章编号）
+     */
+    private List<String> availableSealIds;
+
+    /**
+     * 页面可选机构印章类型，默认值ALL（多项请使用英文逗号分隔）
+     *
+     * ALL - 显示所有类型的印章
+     *
+     * PUBLIC - 机构主体公章
+     *
+     * CONTRACT - 合同专用章
+     *
+     * FINANCE - 财务专用章
+     *
+     * PERSONNEL -人事专用章
+     *
+     * COMMON -其他类印章（无具体业务类型的章）
+     */
+    private String orgSealBizTypes;
+
+    /**
+     * 页面可选个人印章样式，默认值0和1（英文逗号分隔）
+     *
+     * （点击了解 个人手写签名与姓名印章）
+     *  https://open.esign.cn/doc/opendoc/case3/vq3nv0cxyuv3pba4
+     *
+     * 0 - 手写签名
+     *
+     * 1 - 姓名印章
+     *
+     * 2 - 手写签名AI校验
+     */
+    private String psnSealStyles;
+
+    /**
      * 签章区尺寸（正方形的边长，单位为px）
      * <p>
      * 【注】不指定默认以印章原始大小展示
      */
     private Float signFieldSize;
+
+    /**
+     * 签署区宽度（矩形的左右边距距离，单位为px）
+     *
+     * 补充说明：
+     *
+     * 印章需要自定义规格时传入该参数（根据指定的签署区宽高适配）；不指定默认以印章原始大小加盖
+     * 与signFieldHeight搭配使用，但不能与signFieldSize同时传入
+     */
+    private Integer signFieldWidth;
+
+
+    /**
+     * 签署区高度（矩形的上下边距距离，单位为px）
+     *
+     * 补充说明：
+     *
+     * 印章需要自定义规格时传入该参数（根据指定的签署区宽高适配）；不指定默认以印章原始大小加盖
+     * 与signFieldWidth搭配使用，但不能与signFieldSize同时传入
+     */
+    private Integer signFieldHeight;
 
     /**
      * 签章区样式
