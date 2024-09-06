@@ -165,6 +165,10 @@ public class OrgAuthConfig implements Serializable {
          */
         private String psnAccount;
 
+        /**
+         * 经办人身份信息
+         */
+        private PsnInfo psnInfo;
 
     }
 
@@ -220,6 +224,66 @@ public class OrgAuthConfig implements Serializable {
          * bankCardNum - 个人银行卡号
          */
         private List<String> psnEditableFields;
+
+    }
+
+
+    /**
+     * 经办人身份信息
+     *
+     * @author zhangjie
+     */
+    @Data
+    @Accessors(chain = true)
+    public static class PsnInfo implements Serializable {
+
+
+        private static final long serialVersionUID = 2933450392567202566L;
+        /**
+         * 姓名
+         */
+        private String psnName;
+
+        /**
+         * 证件号码
+         */
+        private String psnIDCardNum;
+
+        /**
+         * 证件类型，可选值如下：
+         * <p>
+         * CRED_PSN_CH_IDCARD - 中国大陆居民身份证
+         * <p>
+         * CRED_PSN_CH_HONGKONG - 香港来往大陆通行证（回乡证）
+         * <p>
+         * CRED_PSN_CH_MACAO - 澳门来往大陆通行证（回乡证）
+         * <p>
+         * CRED_PSN_CH_TWCARD - 台湾来往大陆通行证（台胞证）
+         * <p>
+         * CRED_PSN_PASSPORT - 护照
+         */
+        private String psnIDCardType;
+
+        /**
+         * 人手机号（运营商实名登记手机号或银行卡预留手机号，仅用于认证）
+         */
+        private String psnMobile;
+
+        /**
+         * 个人银行卡号
+         */
+        private String bankCardNum;
+
+        /**
+         * 是否校验：psnAccount（个人用户账号标识）或 psnId（个人账号ID）绑定的e签宝个人信息与传入的psnInfo（个人身份信息）中的信息一致
+         * <p>
+         * true - 校验
+         * <p>
+         * false - 不校验（默认值）
+         * <p>
+         * 【注】若传true，则校验信息是否一致。若信息一致或用户未在e签宝注册认证过则正常发起，若信息不一致则报错：“传入的%s和该用户在e签宝的个人信息不一致” ，其中%s可能为多个字段，包含：姓名、证件号、实名手机号、银行卡号
+         */
+        private Boolean psnIdentityVerify;
 
     }
 

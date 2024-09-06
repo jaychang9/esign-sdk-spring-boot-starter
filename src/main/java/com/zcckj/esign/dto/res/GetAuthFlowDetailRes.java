@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 查询认证授权流程详情响应体
@@ -74,5 +75,5 @@ public class GetAuthFlowDetailRes implements Serializable {
     /**
      * 本次授权详情
      */
-    private AuthorizedInfo authorizedInfo;
+    private List<AuthorizedInfo> authorizedInfo;
 }

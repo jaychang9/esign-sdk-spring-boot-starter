@@ -20,7 +20,7 @@ public class R<T> implements Serializable {
 
     private String message;
 
-    public static boolean isSuccess(R<?> result) {
-        return result != null && SUCCESS_CODE.equals(result.getCode());
+    public boolean isSuccess() {
+        return SUCCESS_CODE.equals(code);
     }
 }

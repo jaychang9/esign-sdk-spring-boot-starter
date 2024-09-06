@@ -55,7 +55,7 @@ public interface AuthClient {
      * @return
      */
     @GET("/v3/persons/{psnId}/authorized-info")
-    R<GetPersonAuthorizedInfoRes> getPersonIdentityInfo(@Path("psnId") String psnId);
+    R<GetPersonAuthorizedInfoRes> getPersonAuthorizedInfo(@Path("psnId") String psnId);
 
 
     /**
@@ -90,11 +90,12 @@ public interface AuthClient {
      * @return
      */
     @GET("/v3/organizations/{orgId}/authorized-info")
-    R<GetOrgAuthorizedInfoRes> getOrgIdentityInfo(@Path("orgId") String orgId);
+    R<GetOrgAuthorizedInfoRes> getOrgAuthorizedInfo(@Path("orgId") String orgId);
 
 
     /**
      * 查询认证授权流程详情
+     *
      * @param authFlowId 认证授权流程ID 通过【获取个人认证&授权页面链接】或【获取机构认证&授权页面链接】接口获取。
      * @return
      */
