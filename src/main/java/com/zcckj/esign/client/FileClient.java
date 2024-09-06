@@ -2,8 +2,8 @@ package com.zcckj.esign.client;
 
 import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
-import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
+import com.zcckj.esign.dto.R;
 import com.zcckj.esign.dto.req.GetFileUploadUrlReq;
 import com.zcckj.esign.dto.res.GetFileUploadStatusRes;
 import com.zcckj.esign.dto.res.GetFileUploadUrlRes;
@@ -23,7 +23,7 @@ public interface FileClient {
      * @return
      */
     @POST("/v3/files/file-upload-url")
-    Result<GetFileUploadUrlRes> getFileUploadUrl(@Body GetFileUploadUrlReq req);
+    R<GetFileUploadUrlRes> getFileUploadUrl(@Body GetFileUploadUrlReq req);
 
     /**
      * 查询文件上传状态
@@ -32,6 +32,6 @@ public interface FileClient {
      * @return
      */
     @GET("/v3/files/{fileId}")
-    Result<GetFileUploadStatusRes> getFileUploadStatus(@Path("fileId") String fileId, @Query("pageSize") Boolean pageSize);
+    R<GetFileUploadStatusRes> getFileUploadStatus(@Path("fileId") String fileId, @Query("pageSize") Boolean pageSize);
 
 }

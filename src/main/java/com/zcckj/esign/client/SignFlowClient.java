@@ -2,8 +2,8 @@ package com.zcckj.esign.client;
 
 import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
-import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
+import com.zcckj.esign.dto.R;
 import com.zcckj.esign.dto.req.*;
 import com.zcckj.esign.dto.res.CreateByFileRes;
 import com.zcckj.esign.dto.res.GetBatchSignUrlRes;
@@ -30,7 +30,7 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/create-by-file")
-    Result<CreateByFileRes> createByFile(@Body CreateByFileSimpleReq req);
+    R<CreateByFileRes> createByFile(@Body CreateByFileSimpleReq req);
 
 
     /**
@@ -40,7 +40,7 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/create-by-file")
-    Result<CreateByFileRes> createByFile(@Body CreateByFileReq req);
+    R<CreateByFileRes> createByFile(@Body CreateByFileReq req);
 
     /**
      * 获取签署页面链接
@@ -49,7 +49,7 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/{signFlowId}/sign-url")
-    Result<GetSignUrlRes> getSignUrl(@Path("signFlowId") String signFlowId, @Body GetSignUrlReq req);
+    R<GetSignUrlRes> getSignUrl(@Path("signFlowId") String signFlowId, @Body GetSignUrlReq req);
 
 
     /**
@@ -58,7 +58,7 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/batch-sign-url")
-    Result<GetBatchSignUrlRes> getBatchSignUrl(@Body GetBatchSignUrlReq req);
+    R<GetBatchSignUrlRes> getBatchSignUrl(@Body GetBatchSignUrlReq req);
 
 
     /**
@@ -68,7 +68,7 @@ public interface SignFlowClient {
      * @return
      */
     @GET("/v3/sign-flow/{signFlowId}/detail")
-    Result<GetSignFlowDetailRes> detail(@Path("signFlowId") String signFlowId);
+    R<GetSignFlowDetailRes> detail(@Path("signFlowId") String signFlowId);
 
 
     /**
@@ -77,7 +77,7 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/{signFlowId}/revoke")
-    Result revoke(@Path("signFlowId") String signFlowId, @Body SignFlowRevokeReq req);
+    R revoke(@Path("signFlowId") String signFlowId, @Body SignFlowRevokeReq req);
 
 
     /**
@@ -87,7 +87,7 @@ public interface SignFlowClient {
      * @return
      */
     @POST("/v3/sign-flow/{signFlowId}/delay")
-    Result delay(@Path("signFlowId") String signFlowId, @Body SignFlowDelayReq req);
+    R delay(@Path("signFlowId") String signFlowId, @Body SignFlowDelayReq req);
 
     /**
      * 催签流程中签署人
@@ -96,5 +96,5 @@ public interface SignFlowClient {
      * @param req
      * @return
      */
-    Result urge(@Path("signFlowId") String signFlowId, @Body SignFlowUrgeReq req);
+    R urge(@Path("signFlowId") String signFlowId, @Body SignFlowUrgeReq req);
 }

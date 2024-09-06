@@ -2,8 +2,8 @@ package com.zcckj.esign.client;
 
 import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
-import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
+import com.zcckj.esign.dto.R;
 import com.zcckj.esign.dto.req.*;
 import com.zcckj.esign.dto.res.*;
 import retrofit2.http.*;
@@ -22,7 +22,7 @@ public interface DocTemplateClient {
      * @return
      */
     @POST("/v3/doc-templates/doc-template-create-url")
-    Result<GetDocTemplateCreateUrlRes> getDocTemplateCreateUrl(@Body GetDocTemplateCreateUrlReq req);
+    R<GetDocTemplateCreateUrlRes> getDocTemplateCreateUrl(@Body GetDocTemplateCreateUrlReq req);
 
 
     /**
@@ -31,7 +31,7 @@ public interface DocTemplateClient {
      * @return
      */
     @POST("/v3/doc-templates/{docTemplateId}/doc-template-edit-url")
-    Result<GetDocTemplateEditUrlRes> getDocTemplateEditUrl(@Path("docTemplateId") String docTemplateId, @Body GetDocTemplateEditUrlReq req);
+    R<GetDocTemplateEditUrlRes> getDocTemplateEditUrl(@Path("docTemplateId") String docTemplateId, @Body GetDocTemplateEditUrlReq req);
 
     /**
      * 获取预览合同模板页面
@@ -39,7 +39,7 @@ public interface DocTemplateClient {
      * @return
      */
     @POST("/v3/doc-templates/doc-template-preview-url")
-    Result<GetDocTemplatePreviewUrlRes> getDocTemplatePreviewUrl(@Body GetDocTemplatePreviewUrlReq req);
+    R<GetDocTemplatePreviewUrlRes> getDocTemplatePreviewUrl(@Body GetDocTemplatePreviewUrlReq req);
 
 
     /**
@@ -48,7 +48,7 @@ public interface DocTemplateClient {
      * @return
      */
     @GET("/v3/doc-templates/{docTemplateId}")
-    Result<GetDocTemplateComponentsRes> getDocTemplateComponents(@Path("docTemplateId") String docTemplateId);
+    R<GetDocTemplateComponentsRes> getDocTemplateComponents(@Path("docTemplateId") String docTemplateId);
 
     /**
      * 填写模板生成文件
@@ -56,7 +56,7 @@ public interface DocTemplateClient {
      * @return
      */
     @POST("/v3/files/create-by-doc-template")
-    Result<CreateByDocTemplateRes> createByDocTemplate(@Body CreateByDocTemplateReq req);
+    R<CreateByDocTemplateRes> createByDocTemplate(@Body CreateByDocTemplateReq req);
 
     /**
      * 复制合同模板
@@ -64,7 +64,7 @@ public interface DocTemplateClient {
      * @return
      */
     @POST("/v3/doc-templates/{docTemplateId}/copy")
-    Result<CopyDocTemplateRes> copyDocTemplate(@Path("docTemplateId") String docTemplateId, @Body CopyDocTemplateReq req);
+    R<CopyDocTemplateRes> copyDocTemplate(@Path("docTemplateId") String docTemplateId, @Body CopyDocTemplateReq req);
 
     /**
      * 删除合同模板
@@ -73,7 +73,7 @@ public interface DocTemplateClient {
      * @return
      */
     @DELETE("/v3/doc-templates/{docTemplateId}")
-    Result deleteDocTemplate(@Path("docTemplateId") String docTemplateId);
+    R deleteDocTemplate(@Path("docTemplateId") String docTemplateId);
 
     /**
      * 导出合同模板(仅支持沙箱模拟环境)
@@ -82,7 +82,7 @@ public interface DocTemplateClient {
      * @return
      */
     @POST("/v3/doc-templates/export")
-    Result<DocTemplateExportRes> docTemplatesExport(@Body DocTemplateExportReq req);
+    R<DocTemplateExportRes> docTemplatesExport(@Body DocTemplateExportReq req);
 
 
     /**
@@ -92,6 +92,6 @@ public interface DocTemplateClient {
      * @return
      */
     @POST("/v3/doc-templates/import")
-    Result<DocTemplateImportRes> docTemplatesImport(@Body DocTemplateImportReq req);
+    R<DocTemplateImportRes> docTemplatesImport(@Body DocTemplateImportReq req);
 
 }
