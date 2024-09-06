@@ -4,10 +4,7 @@ import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
 import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
-import com.zcckj.esign.dto.req.CreateByFileReq;
-import com.zcckj.esign.dto.req.CreateByFileSimpleReq;
-import com.zcckj.esign.dto.req.GetBatchSignUrlReq;
-import com.zcckj.esign.dto.req.GetSignUrlReq;
+import com.zcckj.esign.dto.req.*;
 import com.zcckj.esign.dto.res.CreateByFileRes;
 import com.zcckj.esign.dto.res.GetBatchSignUrlRes;
 import com.zcckj.esign.dto.res.GetSignUrlRes;
@@ -56,8 +53,35 @@ public interface SignFlowClient {
     /**
      * 获取签署页面链接
      *
-     * @param req @return
+     * @return
      */
     @POST("/v3/sign-flow/batch-sign-url")
     Result<GetBatchSignUrlRes> getBatchSignUrl(@Body GetBatchSignUrlReq req);
+
+
+    /**
+     * 撤销签署流程
+     *
+     * @return
+     */
+    @POST("/v3/sign-flow/{signFlowId}/revoke")
+    Result revoke(@Path("signFlowId") String signFlowId, @Body SignFlowRevokeReq req);
+
+
+    /**
+     * 延长签署截止时间
+     * @param signFlowId 签署流程ID
+     * @return
+     */
+    @POST("/v3/sign-flow/{signFlowId}/delay")
+    Result delay(@Path("signFlowId") String signFlowId, @Body SignFlowDelayReq req);
+
+    /**
+     * 催签流程中签署人
+     *
+     * @param signFlowId 签署流程ID
+     * @param req
+     * @return
+     */
+    Result urge(@Path("signFlowId") String signFlowId, @Body SignFlowUrgeReq req)
 }
