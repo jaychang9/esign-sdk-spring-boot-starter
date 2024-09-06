@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 获取文件上传地址请求
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

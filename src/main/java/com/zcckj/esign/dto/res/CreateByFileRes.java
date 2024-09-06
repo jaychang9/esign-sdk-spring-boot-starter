@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * （精简版）基于文件发起签署响应体
+ *  @author zhangjie
  */
 @Data
 @Accessors(chain = true)

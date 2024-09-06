@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 获取编辑合同模板页面请求体
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

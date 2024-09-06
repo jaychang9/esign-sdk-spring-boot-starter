@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 签章区配置项
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

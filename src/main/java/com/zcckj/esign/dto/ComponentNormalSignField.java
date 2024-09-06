@@ -5,6 +5,7 @@ import lombok.experimental.Accessors;
 
 /**
  * 签章区属性
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

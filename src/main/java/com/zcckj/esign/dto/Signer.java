@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 签署方信息（指参与签署的个人或者机构）
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

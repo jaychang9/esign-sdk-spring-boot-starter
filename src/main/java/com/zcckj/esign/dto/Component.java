@@ -5,6 +5,7 @@ import lombok.experimental.Accessors;
 
 /**
  * 模板中的控件信息
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

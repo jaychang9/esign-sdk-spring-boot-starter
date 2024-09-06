@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 控件特有属性
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

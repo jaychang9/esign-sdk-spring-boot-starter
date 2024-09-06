@@ -6,7 +6,8 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * 签署人配置项
+ * 签署人签署配置项
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

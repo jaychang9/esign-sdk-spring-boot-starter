@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * 查询合同模板中控件详情响应体
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

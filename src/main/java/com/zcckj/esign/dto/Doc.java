@@ -5,6 +5,10 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
+/**
+ * 文档
+ * @author zhangjie
+ */
 @Data
 @Accessors(chain = true)
 public class Doc implements Serializable {

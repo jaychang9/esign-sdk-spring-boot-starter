@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 控件特有属性
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

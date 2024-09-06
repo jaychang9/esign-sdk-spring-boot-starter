@@ -5,6 +5,7 @@ import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
 import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.req.CreateByFileReq;
+import com.zcckj.esign.dto.req.CreateByFileSimpleReq;
 import com.zcckj.esign.dto.res.CreateByFileRes;
 import retrofit2.http.POST;
 
@@ -17,6 +18,17 @@ public interface SignFlowClient {
 
     /**
      * （精简版）基于文件发起签署
+     *
+     * @param req
+     * @return
+     */
+    @POST("/v3/sign-flow/create-by-file")
+    Result<CreateByFileRes> createByFile(CreateByFileSimpleReq req);
+
+
+    /**
+     * （完整版）基于文件发起签署
+     *
      * @param req
      * @return
      */

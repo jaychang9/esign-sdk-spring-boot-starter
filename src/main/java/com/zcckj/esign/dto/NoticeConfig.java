@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 设置签署方的通知方式
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)
@@ -29,4 +30,16 @@ public class NoticeConfig implements Serializable {
      * 该通知是签署方维度的，只控制签署人的签署提醒短信，不控制流程的撤销、完成、抄送等短信通知
      */
     private String noticeTypes;
+
+
+    /**
+     * 通知给企业印章用印审批人员的通知类型，按照账号中的手机号或邮箱的填写情况进行通知。
+     * true - 发送消息（短信+邮件+e签宝官网站内信）
+     *
+     * （如果套餐内带“分项”字样，请确保开通【电子签名流量费（分项）认证】中的子项：【短信服务】，否则短信通知收不到）
+     * false - 不发送消息
+     *
+     * 【注】不传值默认取noticeTypes配置的通知方式
+     */
+    private Boolean examineNotice;
 }

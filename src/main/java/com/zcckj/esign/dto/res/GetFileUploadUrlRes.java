@@ -6,7 +6,8 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * 获取文件上传地址响应结果
+ * 获取文件上传地址响应体
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

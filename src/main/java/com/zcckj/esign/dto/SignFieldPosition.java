@@ -5,6 +5,10 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
+/**
+ * 签章区位置信息
+ * @author zhangjie
+ */
 @Data
 @Accessors(chain = true)
 public class SignFieldPosition implements Serializable {

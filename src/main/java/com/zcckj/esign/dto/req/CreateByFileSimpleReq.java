@@ -2,7 +2,6 @@ package com.zcckj.esign.dto.req;
 
 import com.zcckj.esign.dto.Doc;
 import com.zcckj.esign.dto.SignFlowConfig;
-import com.zcckj.esign.dto.SignFlowInitiator;
 import com.zcckj.esign.dto.Signer;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -12,11 +11,10 @@ import java.util.List;
 
 /**
  * （精简版）基于文件发起签署请求体
- * @author zhangjie
  */
 @Data
 @Accessors(chain = true)
-public class CreateByFileReq implements Serializable {
+public class CreateByFileSimpleReq implements Serializable {
     private static final long serialVersionUID = -6713407505768229582L;
 
     /**
@@ -33,22 +31,6 @@ public class CreateByFileReq implements Serializable {
      * 签署流程配置项
      */
     private SignFlowConfig signFlowConfig;
-
-
-    /**
-     * 签署流程的发起方（指在平台中发起合同签约的一方，合同的归属方，有权限查看签署的文件，签署通知中展示：“XXX 通知您签署... ”中的XXX即为发起方名字。）
-     * <p>
-     * （点击了解 指定合同发起方）
-     * https://open.esign.cn/doc/opendoc/case3/bgs7lwkpz0fezgup
-     * 不传则默认为应用ID所属的企业来发起签署流程；
-     * 发起方可以为个人或者机构，但不可同时传值
-     * （orgInitiator与psnInitiator 二选一传入）；
-     * <p>
-     * 当指定发起方为非应用ID所属企业时，需先经过【用户授权】
-     * https://open.esign.cn/doc/opendoc/auth3/lmfokx
-     * （代个人/企业用户发起合同签署权限）。
-     */
-    private SignFlowInitiator signFlowInitiator;
 
     /**
      * 签署方信息（指参与签署的个人或者机构）

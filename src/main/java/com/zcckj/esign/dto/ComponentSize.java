@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 控件尺寸
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)

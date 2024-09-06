@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 /**
  * 经办人身份信息
+ * @author zhangjie
  */
 @Data
 @Accessors(chain = true)
