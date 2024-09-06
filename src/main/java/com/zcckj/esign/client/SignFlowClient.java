@@ -6,11 +6,15 @@ import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.req.CreateByFileReq;
 import com.zcckj.esign.dto.req.CreateByFileSimpleReq;
+import com.zcckj.esign.dto.req.GetSignUrlReq;
 import com.zcckj.esign.dto.res.CreateByFileRes;
+import com.zcckj.esign.dto.res.GetSignUrlRes;
 import retrofit2.http.POST;
 
 /**
  * 签署类
+ *
+ * @author zhangjie
  */
 @RetrofitClient(baseUrl = "${esign.base-url}")
 @Intercept(handler = ESignRequestInterceptor.class)
@@ -34,4 +38,13 @@ public interface SignFlowClient {
      */
     @POST("/v3/sign-flow/create-by-file")
     Result<CreateByFileRes> createByFile(CreateByFileReq req);
+
+    /**
+     * 获取签署页面链接
+     *
+     * @param req
+     * @return
+     */
+    @POST("/v3/sign-flow/{signFlowId}/sign-url")
+    Result<GetSignUrlRes> getSignUrl(GetSignUrlReq req);
 }

@@ -9,6 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 文件上传
+ * @author zhangjie
+ */
 @UtilityClass
 public class FileUploadClient {
 

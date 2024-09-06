@@ -16,6 +16,7 @@ import retrofit2.http.Path;
 
 /**
  * 合同模板类
+ * @author zhangjie
  */
 @RetrofitClient(baseUrl = "${esign.base-url}")
 @Intercept(handler = ESignRequestInterceptor.class)

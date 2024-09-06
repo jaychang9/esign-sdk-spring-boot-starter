@@ -20,4 +20,13 @@ public class RedirectConfig implements Serializable {
      * https://open.esign.cn/doc/opendoc/dev-guide3/umo8rop7dmttkdnv
      */
     private String redirectUrl;
+
+    /**
+     * 操作完成重定向跳转延迟时间，单位秒（可选值0、3，默认值为 3）
+     *
+     * 传0时，签署完成直接跳转重定向地址；
+     * 传3时，展示签署完成结果页，倒计时3秒后，自动跳转重定向地址。
+     * 【注】当redirectUrl不传的情况下，该字段无需传入，签署完成不跳转
+     */
+    private Integer redirectDelayTime;
 }
