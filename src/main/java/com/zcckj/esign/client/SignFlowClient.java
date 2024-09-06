@@ -6,8 +6,10 @@ import com.zcckj.common.mvc.result.Result;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.req.CreateByFileReq;
 import com.zcckj.esign.dto.req.CreateByFileSimpleReq;
+import com.zcckj.esign.dto.req.GetBatchSignUrlReq;
 import com.zcckj.esign.dto.req.GetSignUrlReq;
 import com.zcckj.esign.dto.res.CreateByFileRes;
+import com.zcckj.esign.dto.res.GetBatchSignUrlRes;
 import com.zcckj.esign.dto.res.GetSignUrlRes;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -49,4 +51,14 @@ public interface SignFlowClient {
      */
     @POST("/v3/sign-flow/{signFlowId}/sign-url")
     Result<GetSignUrlRes> getSignUrl(@Path("signFlowId") String signFlowId, @Body GetSignUrlReq req);
+
+
+    /**
+     * 获取签署页面链接
+     *
+     * @param req
+     * @return
+     */
+    @POST("/v3/sign-flow/batch-sign-url")
+    Result<GetBatchSignUrlRes> getBatchSignUrl(@Body GetBatchSignUrlReq req);
 }
