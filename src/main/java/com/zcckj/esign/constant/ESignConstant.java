@@ -18,4 +18,6 @@ public class ESignConstant {
     public static final String DEFAULT_ACCEPT_HEADER_VALUE = "*/*";
     public static final String DEFAULT_AUTH_MODE_HEADER_VALUE = "Signature";
 
+    public static final String CALLBACK_ACTION_KEY = "action";
+
 }
