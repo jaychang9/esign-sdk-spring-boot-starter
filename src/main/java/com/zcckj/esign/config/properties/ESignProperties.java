@@ -31,4 +31,3 @@ public class ESignProperties {
      */
     private String callbackUrl;
 }
-}
