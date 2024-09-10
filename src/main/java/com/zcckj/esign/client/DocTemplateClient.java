@@ -75,6 +75,13 @@ public interface DocTemplateClient {
     @DELETE("/v3/doc-templates/{docTemplateId}")
     R deleteDocTemplate(@Path("docTemplateId") String docTemplateId);
 
+
+    /**
+     * 查询PDF模板填写后文件
+     */
+    @GET("/v3/files/{fileId}")
+    R getFileDownloadUrl(@Path("fileId") String fileId, @Query("pageSize") Boolean pageSize);
+
     /**
      * 导出合同模板(仅支持沙箱模拟环境)
      *
