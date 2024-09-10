@@ -25,4 +25,10 @@ public class ESignProperties {
      * 应用密钥
      */
     private String appSecret;
+
+    /**
+     * 回调Url
+     */
+    private String callbackUrl;
+}
 }
