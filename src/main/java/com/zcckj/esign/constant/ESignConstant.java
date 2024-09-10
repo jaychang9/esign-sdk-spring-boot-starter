@@ -41,6 +41,8 @@ public class ESignConstant {
     public static final String FILL_DOCTEMPLATE_FAIL_ACTION = "FILL_DOCTEMPLATE_FAIL";
 
     // 认证授权类
+    /** 实名认证通过通知*/
+    public static final String AUTH_PASS_ACTION = "AUTH_PASS";
     /**
      * 授权完成通知
      */
