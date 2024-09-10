@@ -5,10 +5,7 @@ import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.R;
 import com.zcckj.esign.dto.req.*;
-import com.zcckj.esign.dto.res.CreateByFileRes;
-import com.zcckj.esign.dto.res.GetBatchSignUrlRes;
-import com.zcckj.esign.dto.res.GetSignFlowDetailRes;
-import com.zcckj.esign.dto.res.GetSignUrlRes;
+import com.zcckj.esign.dto.res.*;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -97,4 +94,11 @@ public interface SignFlowClient {
      * @return
      */
     R urge(@Path("signFlowId") String signFlowId, @Body SignFlowUrgeReq req);
+
+    /**
+     * 下载已签署文件及附属材料
+     * @param signFlowId
+     * @return
+     */
+    R<GetSignedFileDownloadUrlRes> getSignedFileDownloadUrl(@Path("signFlowId") String signFlowId);
 }

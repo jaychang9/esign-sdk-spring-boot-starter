@@ -52,6 +52,12 @@ public class ESignConstant {
      */
     public static final String SIGN_FLOW_INITIATED_ACTION = "SIGN_FLOW_INITIATED";
 
+
+    /**
+     * 签署方-签署结果通知
+     */
+    public static final String SIGN_MISSION_COMPLETE_ACTION = "SIGN_MISSON_COMPLETE";
+
     /**
      * 签署人更正个人信息回调通知
      */
