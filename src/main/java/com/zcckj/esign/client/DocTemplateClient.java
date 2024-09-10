@@ -80,7 +80,7 @@ public interface DocTemplateClient {
      * 查询PDF模板填写后文件
      */
     @GET("/v3/files/{fileId}")
-    R getFileDownloadUrl(@Path("fileId") String fileId, @Query("pageSize") Boolean pageSize);
+    R<GetFileDownloadUrlRes> getFileDownloadUrl(@Path("fileId") String fileId, @Query("pageSize") Boolean pageSize);
 
     /**
      * 导出合同模板(仅支持沙箱模拟环境)
