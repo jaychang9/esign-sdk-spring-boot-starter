@@ -7,6 +7,7 @@ import com.zcckj.esign.dto.R;
 import com.zcckj.esign.dto.req.GetOrgConsoleUrlReq;
 import com.zcckj.esign.dto.res.GetOrgConsoleUrlRes;
 import retrofit2.http.Body;
+import retrofit2.http.POST;
 
 /**
  * 企业控制台
@@ -22,5 +23,6 @@ public interface OrgConsoleClient {
      *
      * @return
      */
+    @POST("/v3/organizations/org-console-url")
     R<GetOrgConsoleUrlRes> getOrgConsoleUrl(@Body GetOrgConsoleUrlReq req);
 }
