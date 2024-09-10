@@ -31,4 +31,3 @@ public class SignFlowInitiatedCb implements Serializable {
      */
     private String customBizNum;
 }
-}
