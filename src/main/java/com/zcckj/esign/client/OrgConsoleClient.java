@@ -22,5 +22,5 @@ public interface OrgConsoleClient {
      *
      * @return
      */
-    R<GetOrgConsoleUrlRes> getOrgConsoleUrl(@Body GetOrgConsoleUrlReq);
+    R<GetOrgConsoleUrlRes> getOrgConsoleUrl(@Body GetOrgConsoleUrlReq req);
 }
