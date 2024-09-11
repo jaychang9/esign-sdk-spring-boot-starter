@@ -1,5 +1,8 @@
 package com.zcckj.esign.dto.res;
 
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +10,8 @@ import java.io.Serializable;
  *
  * @author zhangjie
  */
+@Data
+@Accessors(chain = true)
 public class GetSignUrlRes implements Serializable {
 
 
