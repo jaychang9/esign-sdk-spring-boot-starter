@@ -11,6 +11,8 @@ import java.io.Serializable;
  *
  * @author zhangjie
  */
+@Data
+@Accessors(chain = true)
 public class GetSignUrlReq implements Serializable {
 
     private static final long serialVersionUID = 2056873854764630374L;
