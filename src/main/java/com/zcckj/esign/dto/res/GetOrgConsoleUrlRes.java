@@ -16,7 +16,7 @@ public class GetOrgConsoleUrlRes implements Serializable {
     private static final long serialVersionUID = -7810649143268975669L;
 
     /**
-     * 机构账号ID
+     * 免登录企业控制台链接（有效期30分钟，过期需要重新获取）
      */
     private String orgConsoleUrl;
 
