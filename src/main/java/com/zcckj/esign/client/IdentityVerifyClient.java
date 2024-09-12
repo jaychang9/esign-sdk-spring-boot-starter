@@ -4,6 +4,7 @@ import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
 import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.R;
+import com.zcckj.esign.dto.req.Telecom3FactorsReq;
 import com.zcckj.esign.dto.res.Telecom3FactorsRes;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -21,5 +22,5 @@ public interface IdentityVerifyClient {
      * @return
      */
     @POST("/v2/identity/verify/individual/telecom3Factors")
-    R<Telecom3FactorsRes> telecom3Factors(@Body Telecom3FactorsRes);
+    R<Telecom3FactorsRes> telecom3Factors(@Body Telecom3FactorsReq req);
 }
