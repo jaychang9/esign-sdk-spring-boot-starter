@@ -3,15 +3,17 @@ package com.zcckj.esign.dto;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+
 /**
  * 签章区属性
  * @author zhangjie
  */
 @Data
 @Accessors(chain = true)
-public class ComponentRemarkSignField {
-    private static final long serialVersionUID = 8661962459978663770L;
+public class ComponentRemarkSignField implements Serializable {
 
+    private static final long serialVersionUID = 5186528212537824632L;
     /**
      * 是否开启手写抄录AI校验
      * <p>
