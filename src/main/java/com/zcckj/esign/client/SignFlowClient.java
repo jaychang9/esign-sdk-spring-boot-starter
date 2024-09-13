@@ -6,10 +6,7 @@ import com.zcckj.esign.client.interceptor.ESignRequestInterceptor;
 import com.zcckj.esign.dto.R;
 import com.zcckj.esign.dto.req.*;
 import com.zcckj.esign.dto.res.*;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.*;
 
 /**
  * 签署类
@@ -101,4 +98,13 @@ public interface SignFlowClient {
      * @return
      */
     R<GetSignedFileDownloadUrlRes> getSignedFileDownloadUrl(@Path("signFlowId") String signFlowId);
+
+
+    /**
+     * 下载签署中文件
+     * @
+     * @return
+     */
+    @GET("/v3/sign-flow/{signFlowId}/preview-file-download-url")
+    R<GetPreviewFileDownloadUrlRes> getPreviewFileDownloadUrl(@Path("signFlowId") String signFlowId, @Query("docFileId") String docFileId);
 }
