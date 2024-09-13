@@ -50,10 +50,21 @@ public class FileMd5Helper {
         return "";
     }
 
+
+    /***
+     * 计算文件的Content-MD5
+     * @param bytes 字节数组
+     * @return
+     */
+    public String getFileContentMD5(byte[] bytes) {
+        // 获取文件MD5的二进制数组（128位）
+        return new String(Base64.encodeBase64(bytes));
+    }
+
     /***
      * 获取文件MD5-二进制数组（128位）
      *
-     * @param filePath
+     * @param ins 输入流
      * @return
      * @throws IOException
      */

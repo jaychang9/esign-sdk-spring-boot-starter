@@ -23,4 +23,9 @@ public class R<T> implements Serializable {
     public boolean isSuccess() {
         return SUCCESS_CODE.equals(code);
     }
+
+    @Override
+    public String toString() {
+        return String.format("{\"code\":%d,\"message\":\"%s\"}", code, message);
+    }
 }
