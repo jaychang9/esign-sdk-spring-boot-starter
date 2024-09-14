@@ -48,7 +48,7 @@ public class GetOrgIdentityInfoRes implements Serializable {
 
     @Data
     @Accessors(chain = true)
-    private static class OrgInfo implements Serializable {
+    public static class OrgInfo implements Serializable {
 
         private static final long serialVersionUID = 6966925582883726127L;
 
