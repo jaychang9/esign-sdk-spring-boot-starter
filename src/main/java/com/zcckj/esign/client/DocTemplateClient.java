@@ -93,7 +93,7 @@ public interface DocTemplateClient {
 
 
     /**
-     * 导出合同模板(仅支持沙箱模拟环境)
+     * 导入合同模板
      *
      * @param req
      * @return

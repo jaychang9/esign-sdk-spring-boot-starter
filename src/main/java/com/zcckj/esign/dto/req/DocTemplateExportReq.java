@@ -20,5 +20,5 @@ public class DocTemplateExportReq implements Serializable {
     /**
      * 沙箱模拟环境文件模板列表
      */
-    private List<DocTemplate> docTemplateListList;
+    private List<DocTemplate> docTemplateList;
 }
