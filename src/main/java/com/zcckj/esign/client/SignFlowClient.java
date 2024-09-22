@@ -90,6 +90,7 @@ public interface SignFlowClient {
      * @param req
      * @return
      */
+    @POST("/v3/sign-flow/{signFlowId}/urge")
     R urge(@Path("signFlowId") String signFlowId, @Body SignFlowUrgeReq req);
 
     /**
@@ -97,6 +98,7 @@ public interface SignFlowClient {
      * @param signFlowId
      * @return
      */
+    @GET("/v3/sign-flow/{signFlowId}/file-download-url")
     R<GetSignedFileDownloadUrlRes> getSignedFileDownloadUrl(@Path("signFlowId") String signFlowId);
 
 
