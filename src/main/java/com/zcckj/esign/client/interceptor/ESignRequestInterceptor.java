@@ -12,6 +12,9 @@ import okio.Buffer;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 /**
@@ -42,7 +45,13 @@ public class ESignRequestInterceptor extends BasePathMatchInterceptor {
         final String bodyStr = bodyToString(oldRequest);
         final String contentMD5 = EsignEncryption.doContentMD5(bodyStr);
         final String method = oldRequest.method();
-        final String url = oldRequest.url().toString().replaceFirst(eSignProperties.getBaseUrl(), "");
+        final String url;
+        // url 参数不能用url encode
+        try {
+            url = URLDecoder.decode(oldRequest.url().toString().replaceFirst(eSignProperties.getBaseUrl(), ""), StandardCharsets.UTF_8.toString());
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
         final String date = "";
         final String headers = "";
 
