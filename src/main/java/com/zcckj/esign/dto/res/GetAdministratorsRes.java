@@ -7,6 +7,9 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * 查询企业管理员响应体
+ */
 @Data
 @Accessors(chain = true)
 public class GetAdministratorsRes implements Serializable {
