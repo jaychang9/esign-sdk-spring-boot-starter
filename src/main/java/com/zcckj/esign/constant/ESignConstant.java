@@ -88,4 +88,9 @@ public class ESignConstant {
     public static final String UPDATE_LEGAL_REP_ACTION = "UPDATE_LEGAL_REP";
 
 
+    /**
+     * 管理员转授成功通知
+     */
+    public static final String DELEGATE_ADMIN_ACTION = "DELEGATE_ADMIN";
+
 }

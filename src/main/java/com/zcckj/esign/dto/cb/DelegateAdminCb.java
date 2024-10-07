@@ -6,16 +6,16 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * 企业信息变更通知回调数据
+ * 管理员转授成功通知回调数据
  *
  * @author zhangjie
  */
 @Data
 @Accessors(chain = true)
-public class UpdateOrgNameCb implements Serializable {
-    private static final long serialVersionUID = -6851580796968730787L;
+public class DelegateAdminCb implements Serializable {
+    private static final long serialVersionUID = -7782590277312754007L;
     /**
-     * 通知的业务类型，固定值：UPDATE_ORG_NAME
+     * 通知的业务类型，固定值：DELEGATE_ADMIN
      */
     private String action;
     /**
@@ -23,13 +23,13 @@ public class UpdateOrgNameCb implements Serializable {
      */
     private String orgId;
     /**
-     * 机构名称
+     * 旧管理员个人账号ID
      */
-    private String orgName;
+    private String adminId;
     /**
-     * 法定代表人姓名
+     * 新管理员个人账号ID
      */
-    private String newOrgName;
+    private String newAdminId;
     /**
      * 回调通知发送时间（如重试多次均返回第一次时间，毫秒级时间戳格式）
      */
