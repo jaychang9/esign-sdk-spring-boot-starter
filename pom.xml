@@ -30,9 +30,9 @@
 
   <properties>
     <java.version>1.8</java.version>
-    <file.encoding>UTF-8</file.encoding>
-    <project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
+    <file_encoding>UTF-8</file_encoding>
+    <project.build.sourceEncoding>${file_encoding}</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${file_encoding}</project.reporting.outputEncoding>
     <retrofit-spring-boot-starter.version>2.3.6</retrofit-spring-boot-starter.version>
     <okhttp3.version>3.14.9</okhttp3.version>
     <!-- Maven plugins -->
@@ -53,6 +53,16 @@
     <system>Github Issues</system>
     <url>https://github.com/jaychang9/esign-sdk-spring-boot-starter/issues</url>
   </issueManagement>
+
+  <developers>
+    <developer>
+      <id>jaychang</id>
+      <name>Jay Chang</name>
+      <email>jaychang1987@gmail.com</email>
+      <url>https://jaychang.cn/</url>
+      <timezone>+8</timezone>
+    </developer>
+  </developers>
 
   <dependencyManagement>
     <dependencies>
@@ -136,7 +146,7 @@
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
-          <encoding>${file.encoding}</encoding>
+          <encoding>${file_encoding}</encoding>
         </configuration>
       </plugin>
       <plugin>
