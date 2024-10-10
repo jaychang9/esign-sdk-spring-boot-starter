@@ -30,16 +30,17 @@
 
   <properties>
     <java.version>1.8</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <file.encoding>UTF-8</file.encoding>
+    <project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
     <retrofit-spring-boot-starter.version>2.3.6</retrofit-spring-boot-starter.version>
     <okhttp3.version>3.14.9</okhttp3.version>
     <!-- Maven plugins -->
-    <maven_compiler_version>3.8.1</maven_compiler_version>
-    <maven_source_version>3.2.1</maven_source_version>
-    <maven_javadoc_version>2.9.1</maven_javadoc_version>
-    <maven_gpg_version>1.6</maven_gpg_version>
-    <maven_central_publishing_version>0.4.0</maven_central_publishing_version>
+    <maven.compiler.version>3.8.1</maven.compiler.version>
+    <maven.source.version>3.2.1</maven.source.version>
+    <maven.javadoc.version>2.9.1</maven.javadoc.version>
+    <maven.gpg.version>1.6</maven.gpg.version>
+    <maven.central.publishing.version>0.4.0</maven.central.publishing.version>
   </properties>
 
   <scm>
@@ -131,17 +132,17 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven_compiler_version}</version>
+        <version>${maven.compiler.version}</version>
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
+          <encoding>${file.encoding}</encoding>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>${maven_source_version}</version>
+        <version>${maven.source.version}</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -154,7 +155,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${maven_javadoc_version}</version>
+        <version>${maven.javadoc.version}</version>
         <configuration>
           <additionalparam>-Xdoclint:none</additionalparam>
         </configuration>
@@ -170,7 +171,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>${maven_gpg_version}</version>
+        <version>${maven.gpg.version}</version>
         <executions>
           <execution>
             <phase>verify</phase>
@@ -183,7 +184,7 @@
       <plugin>
         <groupId>org.sonatype.central</groupId>
         <artifactId>central-publishing-maven-plugin</artifactId>
-        <version>${maven_central_publishing_version}</version>
+        <version>${maven.central.publishing.version}</version>
         <extensions>true</extensions>
         <configuration>
           <publishingServerId>central</publishingServerId>
