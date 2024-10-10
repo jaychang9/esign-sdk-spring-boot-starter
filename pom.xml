@@ -10,6 +10,7 @@
 
   <name>Esign Spring Boot Starter</name>
   <description>Esign Spring Boot Starter</description>
+  <url>https://github.com/jaychang9/esign-sdk-spring-boot-starter</url>
 
   <licenses>
     <license>
@@ -28,11 +29,11 @@
   </developers>
 
   <properties>
+    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <retrofit-spring-boot-starter.version>2.3.6</retrofit-spring-boot-starter.version>
     <okhttp3.version>3.14.9</okhttp3.version>
-    <java.version>1.8</java.version>
     <!-- Maven plugins -->
     <maven_compiler_version>3.8.1</maven_compiler_version>
     <maven_source_version>3.2.1</maven_source_version>
