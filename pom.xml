@@ -3,13 +3,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.zcckj.esign</groupId>
-  <artifactId>esign-spring-boot-starter</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <groupId>cn.jaychang</groupId>
+  <artifactId>esign-sdk-spring-boot-starter</artifactId>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>esign-spring-boot-starter</name>
-  <description>esign-spring-boot-starter</description>
+  <name>Esign Spring Boot Starter</name>
+  <description>Esign Spring Boot Starter</description>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>jaychang</id>
+      <name>Jay Chang</name>
+      <email>jaychang1987@gmail.com</email>
+      <url>https://jaychang.cn/</url>
+    </developer>
+  </developers>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,18 +33,37 @@
     <retrofit-spring-boot-starter.version>2.3.6</retrofit-spring-boot-starter.version>
     <okhttp3.version>3.14.9</okhttp3.version>
     <java.version>1.8</java.version>
+    <!-- Maven plugins -->
+    <maven_compiler_version>3.8.1</maven_compiler_version>
+    <maven_source_version>3.2.1</maven_source_version>
+    <maven_javadoc_version>2.9.1</maven_javadoc_version>
+    <maven_gpg_version>1.6</maven_gpg_version>
+    <maven_central_publishing_version>0.4.0</maven_central_publishing_version>
   </properties>
 
-  <distributionManagement>
-    <repository>
-      <id>zcckj_releases</id>
-      <url>http://nexus.zcckj.com/repository/zcckj_releases/</url>
-    </repository>
-    <snapshotRepository>
-      <id>zcckj_snapshots</id>
-      <url>http://nexus.zcckj.com/repository/zcckj_snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
+  <scm>
+    <url>https://github.com/jaychang9/esign-sdk-spring-boot-starter</url>
+    <connection>scm:git:git://github.com:jaychang9/esign-sdk-spring-boot-starter.git</connection>
+    <developerConnection>scm:git:git@github.com:jaychang9/esign-sdk-spring-boot-starter.git</developerConnection>
+  </scm>
+
+  <issueManagement>
+    <system>Github Issues</system>
+    <url>https://github.com/jaychang9/esign-sdk-spring-boot-starter/issues</url>
+  </issueManagement>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <!-- Import dependency management from Spring Boot -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.3.12.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -52,7 +87,6 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
-
     <dependency>
       <groupId>com.github.lianjiatech</groupId>
       <artifactId>retrofit-spring-boot-starter</artifactId>
@@ -64,18 +98,15 @@
         </exclusion>
       </exclusions>
     </dependency>
-
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
       <version>${okhttp3.version}</version>
     </dependency>
-
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -83,18 +114,12 @@
     </dependency>
   </dependencies>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <!-- Import dependency management from Spring Boot -->
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.1.6.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>central</id>
+      <url>https://central.sonatype.com/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <build>
     <plugins>
@@ -105,30 +130,66 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
+        <version>${maven_compiler_version}</version>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
           <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
-      <!-- 源码打包 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.4</version>
+        <version>${maven_source_version}</version>
         <executions>
           <execution>
-            <id>attach-sources</id>
-            <phase>verify</phase>
+            <phase>package</phase>
             <goals>
-              <goal>jar-no-fork</goal><!-- 类似执行mvn source:jar -->
+              <goal>jar-no-fork</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven_javadoc_version}</version>
+        <configuration>
+          <additionalparam>-Xdoclint:none</additionalparam>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>${maven_gpg_version}</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>${maven_central_publishing_version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+          <tokenAuth>true</tokenAuth>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
-
 
 </project>

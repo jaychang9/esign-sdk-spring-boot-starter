@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration\
-=com.zcckj.esign.config.ESignConfig
+=cn.jaychang.esign.config.ESignConfig
