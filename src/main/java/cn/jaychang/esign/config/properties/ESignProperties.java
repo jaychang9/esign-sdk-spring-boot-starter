@@ -27,7 +27,7 @@ public class ESignProperties {
     private String appSecret;
 
     /**
-     * 回调Url
+     * 回调Url(可以不用)
      */
     private String callbackUrl;
 }
