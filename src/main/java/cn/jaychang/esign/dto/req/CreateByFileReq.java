@@ -1,7 +1,6 @@
 package cn.jaychang.esign.dto.req;
 
 import cn.jaychang.esign.dto.*;
-import com.zcckj.esign.dto.*;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

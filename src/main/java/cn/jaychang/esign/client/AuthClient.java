@@ -7,7 +7,6 @@ import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
 import cn.jaychang.esign.dto.req.GetOrgAuthReq;
 import cn.jaychang.esign.dto.req.GetPersonAuthReq;
-import com.zcckj.esign.dto.res.*;
 import retrofit2.http.*;
 
 /**

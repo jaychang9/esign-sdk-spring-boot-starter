@@ -6,8 +6,6 @@ import cn.jaychang.esign.dto.req.*;
 import cn.jaychang.esign.dto.res.*;
 import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
-import com.zcckj.esign.dto.req.*;
-import com.zcckj.esign.dto.res.*;
 import retrofit2.http.*;
 
 /**
