@@ -55,3 +55,10 @@ public void getPsnAuthUrl() {
 
 
 ```
+
+# 打印请求响应日志
+```properties
+logging.level.cn.jaychang.esign.client = error
+retrofit.global-log.log-strategy = BODY
+retrofit.global-log.aggregate = true
+```
