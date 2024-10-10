@@ -5,7 +5,7 @@ import cn.jaychang.esign.dto.R;
 import cn.jaychang.esign.dto.res.GetAdministratorsRes;
 import com.github.lianjiatech.retrofit.spring.boot.core.RetrofitClient;
 import com.github.lianjiatech.retrofit.spring.boot.interceptor.Intercept;
-import retrofit2.http.POST;
+import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 /**
@@ -22,6 +22,6 @@ public interface OrgMemberClient {
      *
      * @return
      */
-    @POST("/v3/organizations/{orgId}/administrators")
+    @GET("/v3/organizations/{orgId}/administrators")
     R<GetAdministratorsRes> getAdministrators(@Path("orgId") String orgId);
 }
