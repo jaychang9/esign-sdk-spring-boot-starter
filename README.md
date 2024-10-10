@@ -8,7 +8,6 @@ esign.appSecret=appSecret
 ```
 
 # 使用
-maven
 ```xml
 <dependency>
   <groupId>cn.jaychang</groupId>
