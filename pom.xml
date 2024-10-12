@@ -19,14 +19,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <developers>
-    <developer>
-      <id>jaychang</id>
-      <name>Jay Chang</name>
-      <email>jaychang1987@gmail.com</email>
-      <url>https://jaychang.cn/</url>
-    </developer>
-  </developers>
 
   <properties>
     <java.version>1.8</java.version>
